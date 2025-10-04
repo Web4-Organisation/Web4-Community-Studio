@@ -27,7 +27,7 @@ import { Separator } from './ui/separator';
 const menuItems = [
   { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/dashboard/board', label: 'Brainstorm Board', icon: LayoutGrid },
-  { href: '/dashboard/planner', label: 'Planner', icon: Book },
+  { href: '/dashboard/planner', label: 'Community Planner', icon: Book },
   { href: '/dashboard/templates', label: 'Content Templates', icon: Bot },
   { href: '/dashboard/goals', label: 'Goals', icon: Target },
   { href: '/dashboard/analyzer', label: 'Analyzer', icon: LineChart },
@@ -43,7 +43,7 @@ export default function AppSidebar() {
       collapsible="icon"
       variant="sidebar"
     >
-      <SidebarHeader className="justify-center">
+      <SidebarHeader className="h-14 justify-start p-2">
         <Logo />
       </SidebarHeader>
       <SidebarContent>

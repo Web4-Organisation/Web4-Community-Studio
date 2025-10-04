@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function DashboardPage() {
   return (
     <div className="flex flex-col gap-6">
-      <h1 className="text-3xl font-bold font-headline">Dashboard</h1>
+      <h1 className="text-3xl font-bold font-headline">Community Dashboard</h1>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -68,15 +68,15 @@ export default function DashboardPage() {
 
       <Card className="col-span-1 md:col-span-2 lg:col-span-4">
         <CardHeader>
-          <CardTitle className="font-headline">Welcome to Community Canvas!</CardTitle>
-          <CardDescription>Your all-in-one studio for building thriving communities. Here are some quick actions to get you started:</CardDescription>
+          <CardTitle className="font-headline">Welcome to your Community Management Tool!</CardTitle>
+          <CardDescription>Your all-in-one studio for building and managing thriving communities. Here are some quick actions to get you started:</CardDescription>
         </CardHeader>
         <CardContent className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <Link href="/dashboard/board" className="block">
             <Card className="h-full hover:border-primary transition-colors">
               <CardHeader>
                 <CardTitle className="text-lg font-semibold font-headline">Brainstorm Ideas</CardTitle>
-                <CardDescription className="text-sm">Use the virtual board to capture your thoughts.</CardDescription>
+                <CardDescription className="text-sm">Use the virtual board to capture your community ideas.</CardDescription>
               </CardHeader>
             </Card>
           </Link>
@@ -84,15 +84,15 @@ export default function DashboardPage() {
             <Card className="h-full hover:border-primary transition-colors">
               <CardHeader>
                 <CardTitle className="text-lg font-semibold font-headline">Generate Content</CardTitle>
-                <CardDescription className="text-sm">Get AI-powered suggestions for engaging content.</CardDescription>
+                <CardDescription className="text-sm">Get AI-powered suggestions for engaging community content.</CardDescription>
               </CardHeader>
             </Card>
           </Link>
           <Link href="/dashboard/tasks" className="block">
             <Card className="h-full hover:border-primary transition-colors">
               <CardHeader>
-                <CardTitle className="text-lg font-semibold font-headline">Plan Your Tasks</CardTitle>
-                <CardDescription className="text-sm">Break down your project into manageable tasks.</CardDescription>
+                <CardTitle className="text-lg font-semibold font-headline">Manage Tasks</CardTitle>
+                <CardDescription className="text-sm">Break down your community work into manageable tasks.</CardDescription>
               </CardHeader>
             </Card>
           </Link>

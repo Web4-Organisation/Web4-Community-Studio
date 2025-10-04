@@ -64,7 +64,7 @@ export default function TasksPage() {
       <CardHeader className="flex flex-row items-center justify-between">
         <div>
           <CardTitle className="font-headline">Task Management</CardTitle>
-          <CardDescription>Divide your community project into smaller tasks.</CardDescription>
+          <CardDescription>Divide your community work into smaller, manageable tasks.</CardDescription>
         </div>
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogTrigger asChild>
@@ -76,7 +76,7 @@ export default function TasksPage() {
           <DialogContent>
             <DialogHeader>
               <DialogTitle>Create a New Task</DialogTitle>
-              <DialogDescription>Fill out the details for the new task.</DialogDescription>
+              <DialogDescription>Fill out the details for the new community task.</DialogDescription>
             </DialogHeader>
             <div className="grid gap-4 py-4">
               <div className="grid gap-2">

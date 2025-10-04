@@ -35,27 +35,27 @@ export default function AppHeader() {
           <Button size="sm" className="h-9 gap-1">
             <PlusCircle className="h-4 w-4" />
             <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-              New Project
+              New Community
             </span>
           </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Create New Project</DialogTitle>
+            <DialogTitle>Create New Community</DialogTitle>
             <DialogDescription>
-              Give your new project a name to get started.
+              Give your new community a name to get started.
             </DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="name" className="text-right">
-                Project Name
+                Community Name
               </Label>
               <Input id="name" placeholder="My Awesome Community" className="col-span-3" />
             </div>
           </div>
           <DialogFooter>
-            <Button onClick={handleCreateProject}>Create Project</Button>
+            <Button onClick={handleCreateProject}>Create Community</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

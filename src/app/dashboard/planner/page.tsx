@@ -4,7 +4,7 @@ import { Paintbrush } from "lucide-react";
 export default function PlannerPage() {
   return (
     <div>
-      <h1 className="text-3xl font-bold font-headline mb-6">Drag-and-Drop Planner</h1>
+      <h1 className="text-3xl font-bold font-headline mb-6">Community Planner</h1>
       <Card>
         <CardHeader>
           <CardTitle className="font-headline">Coming Soon!</CardTitle>
