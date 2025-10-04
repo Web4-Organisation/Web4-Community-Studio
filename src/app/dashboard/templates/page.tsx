@@ -1,7 +1,7 @@
 'use client';
 
-import { useStreamFlow } from '@genkit-ai/next/client';
-import { generateContentTemplates } from '@/ai/flows/content-template-suggestions';
+import { useState } from 'react';
+import { generateContentTemplates, type ContentTemplateSuggestionsOutput } from '@/ai/flows/content-template-suggestions';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -17,8 +17,9 @@ const formSchema = z.object({
 });
 
 export default function TemplatesPage() {
-  const { stream, pending, data: suggestions } = useStreamFlow(generateContentTemplates);
-  
+  const [pending, setPending] = useState(false);
+  const [suggestions, setSuggestions] = useState<ContentTemplateSuggestionsOutput | null>(null);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -27,7 +28,17 @@ export default function TemplatesPage() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    stream(values);
+    setPending(true);
+    setSuggestions(null);
+    try {
+      const result = await generateContentTemplates(values);
+      setSuggestions(result);
+    } catch (error) {
+      console.error("Error generating suggestions:", error);
+      // Optionally, set an error state to show in the UI
+    } finally {
+      setPending(false);
+    }
   }
 
   return (

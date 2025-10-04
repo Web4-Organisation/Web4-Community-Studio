@@ -1,7 +1,7 @@
 'use client';
 
-import { useStreamFlow } from '@genkit-ai/next/client';
-import { analyzeCommunityTrends } from '@/ai/flows/analyze-community-trends';
+import { useState } from 'react';
+import { analyzeCommunityTrends, type AnalyzeCommunityTrendsOutput } from '@/ai/flows/analyze-community-trends';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -17,7 +17,8 @@ const formSchema = z.object({
 });
 
 export default function AnalyzerPage() {
-  const { stream, pending, data: analysis } = useStreamFlow(analyzeCommunityTrends);
+  const [pending, setPending] = useState(false);
+  const [analysis, setAnalysis] = useState<AnalyzeCommunityTrendsOutput | null>(null);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -27,7 +28,17 @@ export default function AnalyzerPage() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    stream(values);
+    setPending(true);
+    setAnalysis(null);
+    try {
+      const result = await analyzeCommunityTrends(values);
+      setAnalysis(result);
+    } catch (error) {
+      console.error("Error analyzing trends:", error);
+      // Optionally, set an error state to show in the UI
+    } finally {
+      setPending(false);
+    }
   }
 
   return (
