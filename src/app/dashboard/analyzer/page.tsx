@@ -1,6 +1,6 @@
 'use client';
 
-import { useFlow } from '@genkit-ai/next/client';
+import { useStreamFlow } from '@genkit-ai/next/client';
 import { analyzeCommunityTrends } from '@/ai/flows/analyze-community-trends';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
@@ -17,7 +17,7 @@ const formSchema = z.object({
 });
 
 export default function AnalyzerPage() {
-  const [analyze, { loading: pending, data: analysis }] = useFlow(analyzeCommunityTrends);
+  const { stream, loading: pending, data: analysis } = useStreamFlow(analyzeCommunityTrends);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -27,7 +27,7 @@ export default function AnalyzerPage() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    await analyze(values);
+    await stream(values);
   }
 
   return (
@@ -80,7 +80,7 @@ export default function AnalyzerPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            {pending ? (
+            {pending && !analysis ? (
               <div className="space-y-2">
                 <Skeleton className="h-4 w-full" />
                 <Skeleton className="h-4 w-full" />

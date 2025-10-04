@@ -1,6 +1,6 @@
 'use client';
 
-import { useFlow } from '@genkit-ai/next/client';
+import { useStreamFlow } from '@genkit-ai/next/client';
 import { generateContentTemplates } from '@/ai/flows/content-template-suggestions';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -17,7 +17,7 @@ const formSchema = z.object({
 });
 
 export default function TemplatesPage() {
-  const [generate, { loading: pending, data: suggestions }] = useFlow(generateContentTemplates);
+  const { stream, loading: pending, data: suggestions } = useStreamFlow(generateContentTemplates);
   
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -27,7 +27,7 @@ export default function TemplatesPage() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    await generate(values);
+    await stream(values);
   }
 
   return (
@@ -76,7 +76,7 @@ export default function TemplatesPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            {pending ? (
+            {pending && !suggestions ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[...Array(6)].map((_, i) => <Skeleton key={i} className="h-16 w-full" />)}
               </div>
