@@ -88,7 +88,7 @@ export default function AnalyzerPage() {
               </div>
             ) : (
                <div className="space-y-4 text-sm text-foreground/90">
-                {analysis?.summary.split('\n').map((paragraph, index) => (
+                {analysis?.summary.split('\n').filter(p => p).map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
                 ))}
               </div>

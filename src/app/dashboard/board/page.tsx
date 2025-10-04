@@ -1,8 +1,13 @@
+'use client';
+
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { PlusCircle } from "lucide-react";
 
 export default function BoardPage() {
+  // TODO: Replace with dynamic data
+  const ideas: any[] = [];
+
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
@@ -20,33 +25,17 @@ export default function BoardPage() {
           </CardContent>
         </Card>
         
-        <Card className="h-52">
-          <CardHeader>
-            <CardTitle className="text-lg font-headline">Community Launch Plan</CardTitle>
-            <CardDescription>1 day ago</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-muted-foreground">Outline steps for a successful launch.</p>
-          </CardContent>
-        </Card>
-        <Card className="h-52">
-          <CardHeader>
-            <CardTitle className="text-lg font-headline">Content Pillars</CardTitle>
-            <CardDescription>3 days ago</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-muted-foreground">Define key topics for our community: tutorials, showcases, and Q&A.</p>
-          </CardContent>
-        </Card>
-        <Card className="h-52">
-          <CardHeader>
-            <CardTitle className="text-lg font-headline">Member Onboarding Flow</CardTitle>
-            <CardDescription>5 days ago</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-muted-foreground">How do we welcome new members and guide them?</p>
-          </CardContent>
-        </Card>
+        {ideas.map((idea, index) => (
+          <Card key={index} className="h-52">
+            <CardHeader>
+              <CardTitle className="text-lg font-headline">{idea.title}</CardTitle>
+              <CardDescription>{idea.age}</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">{idea.description}</p>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </div>
   );

@@ -1,3 +1,5 @@
+'use client';
+
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -12,19 +14,10 @@ import {
   TableRow,
 } from "@/components/ui/table"
 
-const tasks = [
-  { id: 1, title: "Design welcome email template", assignee: "Alex", status: "Done", priority: "High" },
-  { id: 2, title: "Schedule social media posts for launch week", assignee: "Sam", status: "In Progress", priority: "High" },
-  { id: 3, title: "Write community guidelines", assignee: "Casey", status: "Todo", priority: "Medium" },
-  { id: 4, title: "Set up Discord server roles", assignee: "Alex", status: "Done", priority: "Medium" },
-  { id: 5, title: "Draft announcement blog post", assignee: "Sam", status: "Backlog", priority: "Low" },
-];
+// TODO: Replace with dynamic data
+const tasks: any[] = [];
 
-const assigneeAvatars: { [key: string]: string } = {
-  "Alex": "https://picsum.photos/seed/alex/40/40",
-  "Sam": "https://picsum.photos/seed/sam/40/40",
-  "Casey": "https://picsum.photos/seed/casey/40/40",
-};
+const assigneeAvatars: { [key: string]: string } = {};
 
 export default function TasksPage() {
   const getStatusBadgeVariant = (status: string): BadgeProps["variant"] => {
@@ -78,7 +71,13 @@ export default function TasksPage() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {tasks.map(task => (
+            {tasks.length === 0 ? (
+              <TableRow>
+                <TableCell colSpan={4} className="h-24 text-center">
+                  No tasks yet. Create a new task to begin.
+                </TableCell>
+              </TableRow>
+            ) : tasks.map(task => (
               <TableRow key={task.id}>
                 <TableCell className="font-medium">{task.title}</TableCell>
                 <TableCell>

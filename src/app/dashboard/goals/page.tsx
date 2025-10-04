@@ -1,17 +1,14 @@
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
+'use client';
+
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { Target, PlusCircle } from "lucide-react";
+import { PlusCircle } from "lucide-react";
 
-const goals = [
-  { id: 1, title: "Reach 1,000 members", progress: 75, achieved: false, category: "Growth" },
-  { id: 2, title: "Host first virtual event", progress: 100, achieved: true, category: "Engagement" },
-  { id: 3, title: "Increase daily active users by 20%", progress: 40, achieved: false, category: "Activity" },
-  { id: 4, title: "Launch a weekly newsletter", progress: 90, achieved: false, category: "Content" },
-  { id: 5, title: "Onboard 5 community moderators", progress: 100, achieved: true, category: "Operations" },
-];
+// TODO: Replace with dynamic data
+const goals: any[] = [];
 
 export default function GoalsPage() {
   return (
@@ -25,6 +22,11 @@ export default function GoalsPage() {
       </div>
 
       <div className="grid gap-4">
+        {goals.length === 0 && (
+          <Card className="flex items-center justify-center h-48 border-2 border-dashed">
+            <p className="text-muted-foreground">No goals defined yet. Add a new goal to get started!</p>
+          </Card>
+        )}
         {goals.map((goal) => (
           <Card key={goal.id} className={goal.achieved ? "bg-muted/50" : ""}>
             <CardHeader>

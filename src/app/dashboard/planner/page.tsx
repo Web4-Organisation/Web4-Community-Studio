@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
-import { PaintBrush } from "lucide-react";
+import { Paintbrush } from "lucide-react";
 
 export default function PlannerPage() {
   return (
@@ -14,7 +14,7 @@ export default function PlannerPage() {
         </CardHeader>
         <CardContent>
           <div className="flex flex-col items-center justify-center h-80 border-2 border-dashed rounded-lg bg-muted/20">
-            <PaintBrush className="h-16 w-16 text-muted-foreground/50 mb-4" />
+            <Paintbrush className="h-16 w-16 text-muted-foreground/50 mb-4" />
             <p className="text-muted-foreground">Planner Canvas</p>
           </div>
         </CardContent>
