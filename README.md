@@ -2,6 +2,9 @@
 
 Web4 Community Studio is a modern, full-stack web application built with Next.js, TypeScript, and Tailwind CSS. It features a comprehensive dashboard designed for community management, content strategy, and task organization. The application leverages the power of Google's Genkit to provide AI-driven insights and content suggestions.
 
+<img width="1911" height="797" alt="Screenshot 2025-10-04 9 45 38 PM" src="https://github.com/user-attachments/assets/f9263ccb-2e44-4957-892a-2d6d49082bf5" />
+
+
 ## Features
 
 -   **Dashboard:** A central hub for all your management needs.
