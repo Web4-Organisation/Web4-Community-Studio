@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Avatar,
   AvatarFallback,
@@ -15,6 +17,12 @@ import {
 import { LogOut } from "lucide-react"
 
 export default function UserNav() {
+
+  const handleLogout = () => {
+    // TODO: Implement actual logout logic
+    console.log("Logging out...");
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -35,7 +43,7 @@ export default function UserNav() {
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={handleLogout}>
           <LogOut className="mr-2 h-4 w-4" />
           <span>Log out</span>
         </DropdownMenuItem>

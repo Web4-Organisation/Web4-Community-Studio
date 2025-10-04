@@ -68,7 +68,7 @@ export default function AppSidebar() {
       </SidebarContent>
       <Separator />
       <SidebarFooter>
-        <Button variant="outline" className="w-full">
+        <Button variant="outline" className="w-full" onClick={() => console.log('Upgrade plan clicked')}>
           Upgrade Plan
         </Button>
       </SidebarFooter>
