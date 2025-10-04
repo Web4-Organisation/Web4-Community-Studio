@@ -18,11 +18,8 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
-  SidebarFooter,
 } from '@/components/ui/sidebar';
 import Logo from '@/components/logo';
-import { Button } from '@/components/ui/button';
-import { Separator } from './ui/separator';
 
 const menuItems = [
   { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
@@ -50,28 +47,20 @@ export default function AppSidebar() {
         <SidebarMenu>
           {menuItems.map((item) => (
             <SidebarMenuItem key={item.href}>
-              <Link href={item.href} passHref legacyBehavior>
+              <Link href={item.href} passHref>
                 <SidebarMenuButton
-                  asChild
+                  as="a"
                   isActive={pathname === item.href}
                   tooltip={item.label}
                 >
-                  <a>
-                    <item.icon />
-                    <span>{item.label}</span>
-                  </a>
+                  <item.icon />
+                  <span>{item.label}</span>
                 </SidebarMenuButton>
               </Link>
             </SidebarMenuItem>
           ))}
         </SidebarMenu>
       </SidebarContent>
-      <Separator />
-      <SidebarFooter>
-        <Button variant="outline" className="w-full" onClick={() => console.log('Upgrade plan clicked')}>
-          Upgrade Plan
-        </Button>
-      </SidebarFooter>
     </Sidebar>
   );
 }
