@@ -17,7 +17,7 @@ const formSchema = z.object({
 });
 
 export default function AnalyzerPage() {
-  const { stream, loading: pending, data: analysis } = useStreamFlow(analyzeCommunityTrends);
+  const { stream, pending, data: analysis } = useStreamFlow(analyzeCommunityTrends);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

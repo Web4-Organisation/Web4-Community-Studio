@@ -17,7 +17,7 @@ const formSchema = z.object({
 });
 
 export default function TemplatesPage() {
-  const { stream, loading: pending, data: suggestions } = useStreamFlow(generateContentTemplates);
+  const { stream, pending, data: suggestions } = useStreamFlow(generateContentTemplates);
   
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
