@@ -27,7 +27,7 @@ export default function TemplatesPage() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    await stream(values);
+    stream(values);
   }
 
   return (
