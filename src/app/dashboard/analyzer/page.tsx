@@ -1,6 +1,6 @@
 'use client';
 
-import { useFlow } from '@genkit-ai/next/useFlow';
+import { useFlow } from '@genkit-ai/next/client';
 import { analyzeCommunityTrends } from '@/ai/flows/analyze-community-trends';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';

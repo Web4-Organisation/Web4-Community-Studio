@@ -1,6 +1,6 @@
 'use client';
 
-import { useFlow } from '@genkit-ai/next/useFlow';
+import { useFlow } from '@genkit-ai/next/client';
 import { generateContentTemplates } from '@/ai/flows/content-template-suggestions';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';

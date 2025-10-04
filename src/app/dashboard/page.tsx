@@ -16,9 +16,9 @@ export default function DashboardPage() {
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">+2,350</div>
+            <div className="text-2xl font-bold">0</div>
             <p className="text-xs text-muted-foreground">
-              +180.1% from last month
+              No new members
             </p>
           </CardContent>
         </Card>
@@ -30,9 +30,9 @@ export default function DashboardPage() {
             <Activity className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">72.5%</div>
+            <div className="text-2xl font-bold">0%</div>
             <p className="text-xs text-muted-foreground">
-              +12% from last week
+              No new engagement
             </p>
           </CardContent>
         </Card>
@@ -44,9 +44,9 @@ export default function DashboardPage() {
             <Bot className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">+42</div>
+            <div className="text-2xl font-bold">0</div>
             <p className="text-xs text-muted-foreground">
-              generated this week
+              No ideas generated
             </p>
           </CardContent>
         </Card>
@@ -58,9 +58,9 @@ export default function DashboardPage() {
             <Target className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">3 / 5</div>
+            <div className="text-2xl font-bold">0 / 0</div>
             <p className="text-xs text-muted-foreground">
-              this quarter
+              No goals achieved
             </p>
           </CardContent>
         </Card>
